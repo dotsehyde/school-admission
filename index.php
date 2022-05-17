@@ -10,11 +10,17 @@
 </head>
 
 <body>
-
     <header>
         <p>Logo</p>
         <h3>Admission Form</h3>
-        <a href="./admin/login.php" class="login"><span class="iconify" data-icon="simple-line-icons:login"></span>Login</a>
+        <?php
+        session_start();
+        if (isset($_SESSION["logged"]) && $_SESSION["logged"] === true) {
+            echo '<a href="./admin/index.php" class="login"><span class="iconify" data-icon="simple-line-icons:login"></span>Admin</a>';
+        } else {
+            echo '<a href="./admin/login.php" class="login"><span class="iconify" data-icon="simple-line-icons:login"></span>Login</a>';
+        }
+        ?>
     </header>
     <div class="container">
         <section class="left-panel">
