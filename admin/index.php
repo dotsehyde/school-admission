@@ -17,7 +17,7 @@ session_start();
     <header>
         <h3>Admin Panel</h3>
         <?php echo '<p>Welcome back ' . $_SESSION["name"] . '</p>' ?>
-        <a href="./logout.php" class="login" onclick="return  confirm('Do you want to logout? ')"><span class="iconify" data-icon="simple-line-icons:login"></span>Logout</a>
+        <a href="./logout.php" class="login" onclick="return confirm('Do you want to logout? ')"><span class="iconify" data-icon="simple-line-icons:login"></span>Logout</a>
 
     </header>
     <section>

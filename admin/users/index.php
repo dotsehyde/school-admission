@@ -68,7 +68,7 @@
 <body>
     <div class="header">
         <h1>Users</h1>
-        <a href="" class="edit">Add User</a>
+        <a href="./addUser.php" class="edit">Add User</a>
     </div>
     <hr />
     <section>
@@ -86,18 +86,16 @@
             if (mysqli_num_rows($res) > 0) {
                 while ($row = mysqli_fetch_assoc($res)) {
                     // echo "Name: " . $row['name'];
-                    echo '
-                   <li>
-                    <div class="details">
-                    <p>' . $row['name'] . '</p>
-                    <p>' . $row['email'] . '</p>
-                    <div class="action">
-                        <a href="" class="edit">Edit</a>
-                        <a href="" class="del">Delete</a>
-                    </div>
-                </div>
-            </li>
-                   ';
+                    echo '<li>
+                     <div class="details">
+                     <p>' . $row['name'] . '</p>
+                     <p>' . $row['email'] . '</p>
+                     <div class="action">
+                     <a href="./deleteUser.php?id=" class="del" onclick="return confirm("Do you want to delete this user?"")">Delete</a>
+                     </div>
+                     </div>
+                     </li>';
+                    //  <a href="" class="edit">Edit</a>
                 }
             } else {
                 $err = "Oops! No users";

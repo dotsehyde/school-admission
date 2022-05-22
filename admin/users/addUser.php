@@ -1,38 +1,25 @@
 <?php
-// Initialize the session
-session_start();
-//Check if user already logged in
-if (isset($_SESSION["logged"]) && $_SESSION["logged"] === true) {
-    // Redirect user to Admin page
-    header("location: index.php", true);
-}
-require "../config.php";
-$login_err = "";
+require "../../config.php";
+$err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
+    $name = $_POST['name'];
 
-    $sql = "SELECT * FROM users WHERE email = '" . $email . "' AND PASSWORD = '" . $password . "'";
-
-    $res = mysqli_query($conn, $sql);
-    //Check login status
-    if (mysqli_num_rows($res) > 0) {
-        echo 'login successful<br>';
-
-        while ($row = mysqli_fetch_assoc($res)) {
-            echo "Name: " . $row['name'];
-            // Store data in session variables
-            $_SESSION["logged"] = true;
-            $_SESSION["email"] = $email;
-            $_SESSION["name"] = $row['name'];
-        }
-        // Redirect user to Admin page
-        header("location: index.php", true);
+    if ($password !== $cpassword) {
+        $err = "Password doesn't match";
     } else {
-        $login_err = "Incorrect email or password";
+        $sql = "INSERT INTO users (name,email,password) VALUES ('" . $name . "','" . $email . "','" . $password . "')";
+        $res = mysqli_query($conn, $sql);
+        //Check added successfully
+        if ($res) {
+            echo 'Added successfully<br>';
+            // Redirect user to Users page
+            header("location: index.php", true);
+        }
     }
 }
-
 mysqli_close($conn);
 ?>
 
@@ -43,7 +30,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | Admission</title>
+    <title>Add Admin User | Admission</title>
 </head>
 
 <style>
@@ -130,24 +117,29 @@ mysqli_close($conn);
 
 <body>
     <section>
-        <h1>Admin Login</h1>
+        <h1>Add Admin User</h1>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Name" name="name" required />
+            </div>
             <div class="inputBox">
                 <input type="email" id="email" placeholder="Email" name="email" required />
             </div>
             <div class="inputBox">
                 <input type="password" id="password" placeholder="Password" name="password" required />
             </div>
+            <div class="inputBox">
+                <input type="password" id="cpassword" placeholder="Confirm Password" name="cpassword" required />
+            </div>
             <?php
-            if (!empty($login_err)) {
-                echo '<div class="error">' . $login_err . '</div>';
+            if (!empty($err)) {
+                echo '<div class="error">' . $err . '</div>';
             }
             ?>
-            <button id="login-btn" type="submit" value="Login">Login</button>
+            <button id="login-btn" type="submit" value="">Add User</button>
         </form>
     </section>
 
 </body>
-
 
 </html>

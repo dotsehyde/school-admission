@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="inputBox">
                         <label for="firstName">First Name</label>
-                        <input type="text" name="firstName" placeholder="First Name">
+                        <input type="text" name="firstName" placeholder="First Name"><span className='input-highlight'>
                     </div>
                     <div class="inputBox">
                         <label for="lastName">Last Name</label>
