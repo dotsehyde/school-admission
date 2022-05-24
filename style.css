@@ -25,6 +25,7 @@ header .login {
   color: white;
   text-decoration: none;
 }
+
 .login .iconify {
   margin: auto 5px;
   margin-right: 7px;
@@ -55,6 +56,7 @@ header .login:hover {
   width: 70vw;
   background-color: crimson;
 }
+
 .right-panel form {
   display: flex;
   flex-direction: column;
@@ -80,34 +82,8 @@ form .row {
   margin: auto 5px;
 } */
 
-form .inputBox {
-  position: relative;
-  width: 500px;
-  margin: 50px auto;
-}
 
-.inputBox>input{
-  height: 60px;
-  width: 100%;
-  min-width: 100%;
-  padding: 0;
-  border-radius: 0;
-  line-height: 70px;
-  background-color: transparent;
-  color: white;
-  font-size: 30px;
-  border: none;
-  outline: none;
-  border-bottom: 3px solid #333333;
- 
-}
 
-.inputBox>input:focus {
-}
-
-.input-highlight {
- border-top: 3px solid #fbc91b;
-}
 form .buttons {
   margin-top: 1vh;
   width: 100%;
@@ -121,7 +97,7 @@ form .buttons {
   padding: 5px;
   background: none;
   color: white;
-  font-size:1.3rem;
+  font-size: 1.3rem;
 }
 
 .buttons button:hover {

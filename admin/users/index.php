@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
+    // Redirect user to Login page
+    header("location: ../login.php", true);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +30,9 @@
 
     .details {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
+        margin-right: 35px;
     }
 
     .details>.iconify {
@@ -33,9 +41,10 @@
 
     .action {
         display: flex;
+
     }
 
-    .edit {
+    .add {
         display: flex;
         text-decoration: none;
         color: white;
@@ -46,7 +55,7 @@
         margin-right: 10px;
     }
 
-    .edit:hover {
+    .add:hover {
         background-color: #60B099;
     }
 
@@ -58,17 +67,19 @@
         text-align: center;
         border-radius: 10px;
         background-color: #DB3333;
+        border: none;
     }
 
     .action>.del:hover {
         background-color: #D15858;
+        cursor: pointer;
     }
 </style>
 
 <body>
     <div class="header">
         <h1>Users</h1>
-        <a href="./addUser.php" class="edit">Add User</a>
+        <a href="./addUser.php" class="add">Add User</a>
     </div>
     <hr />
     <section>
@@ -91,9 +102,10 @@
                      <p>' . $row['name'] . '</p>
                      <p>' . $row['email'] . '</p>
                      <div class="action">
-                     <a href="./deleteUser.php?id=" class="del" onclick="return confirm("Do you want to delete this user?"")">Delete</a>
+                     <button class="del" onclick="deleteUser(' . $row['id'] . ')">Delete</a>
                      </div>
                      </div>
+                     <hr>
                      </li>';
                     //  <a href="" class="edit">Edit</a>
                 }
@@ -105,6 +117,7 @@
 
         </ul>
     </section>
+    <script src="./js/users.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 </body>
 

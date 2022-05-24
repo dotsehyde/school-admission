@@ -9,6 +9,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+<style>
+    .texrbox {
+        padding: 8px !important;
+        height: auto;
+        width: 95%;
+        background: #f2f2f2;
+        color: #333;
+        border: none;
+        border-bottom: 1px solid #999;
+        border-radius: 1px;
+        font-family: 'josefin_sansregular', sans-serif;
+        font-size: 15px;
+        outline: none;
+        -webkit-transition: all 250ms ease-in;
+        -moz-transition: all 250ms ease-in;
+        -ms-transition: all 250ms ease-in;
+        -o-transition: all 250ms ease-in;
+        transition: all 250ms ease-in;
+    }
+
+    .texrbox:focus {
+        background: #f9f9f9;
+        border-bottom: 1px solid #333;
+    }
+
+    td {
+        text-align: center;
+    }
+</style>
+
 <body>
     <header>
         <p>Logo</p>
@@ -31,28 +61,26 @@
         </section>
         <section class="right-panel">
             <form action="" method="post">
+                <span>Passport Picture</span> <input type="file" />
                 <label for="">Personal Information</label>
-                <div class="row">
-                    <div class="inputBox">
-                        <label for="firstName">First Name</label>
-                        <input type="text" name="firstName" placeholder="First Name"><span className='input-highlight'>
-                    </div>
-                    <div class="inputBox">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" name="lastName" placeholder="Last Name">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="inputBox">
-                        <label for="otherName">Other Names</label>
-                        <input type="text" name="otherName" placeholder="Other Names">
-                    </div>
-                    <div class="inputBox">
-                        <label for="dob">Date of Birth</label>
-                        <input type="date" name="dob" placeholder="Other Names">
-                    </div>
-
-                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <input class="texrbox" type="text" name="firstName" placeholder="First Name">
+                        </td>
+                        <td>
+                            <input class="texrbox" type="text" name="otherName" placeholder="Other Names">
+                        </td>
+                        <td>
+                            <input class="texrbox" type="text" name="lastName" placeholder="Last Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="texrbox" type="date" name="dob" placeholder="Other Names">
+                        </td>
+                    </tr>
+                </table>
                 <div class="buttons">
                     <button type="submit">Submit</button>
                     <button type="reset">Clear</button>
