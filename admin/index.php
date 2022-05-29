@@ -14,7 +14,7 @@ if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin | Admission</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -25,18 +25,12 @@ if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
 
     </header>
     <section>
-        <div class="menu-item">
-            <span class="iconify" data-icon="tabler:files"></span>
-            Entries
-        </div>
-        <!-- <div class="menu-item">
-            <span class="iconify" data-icon="tabler:files"></span>
-            Applicants
-        </div> -->
-        <!-- <div class="menu-item">
-            <span class="iconify" data-icon="tabler:files"></span>
-            Applicants
-        </div> -->
+        <a href="./entries/index.php">
+            <div class="menu-item">
+                <span class="iconify" data-icon="tabler:files"></span>
+                Entries
+            </div>
+        </a>
         <a href="./users/index.php">
             <div class="menu-item">
                 <span class="iconify" data-icon="wpf:administrator"></span>

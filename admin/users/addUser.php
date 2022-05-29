@@ -35,14 +35,14 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Admin User | Admission</title>
+    <title>Add User | Admission</title>
 </head>
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@200;300;400;500;600;700;800&display=swap');
 
     * {
-        font-family: "Roboto Slab", serif;
+        font-family: 'Montserrat', sans-serif;
     }
 
     body {
@@ -105,7 +105,7 @@ mysqli_close($conn);
 
     button {
         border: none;
-        background-color: #2C9376;
+        background-color: #2155CD;
         padding: 10px;
         color: white;
         margin: auto 10px;
@@ -115,8 +115,7 @@ mysqli_close($conn);
 
     button:hover {
         cursor: pointer;
-        color: white;
-        background-color: #46B39E;
+        background-color: #0AA1DD;
     }
 </style>
 

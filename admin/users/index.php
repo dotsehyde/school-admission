@@ -16,12 +16,15 @@ if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
 </head>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@200;300;400;500;600;700;800&display=swap');
+
     * {
+        font-family: 'Montserrat', sans-serif;
         box-sizing: border-box;
     }
 
     section {
-        background-color: #CCE4C8;
+        background-color: #E8F9FD;
     }
 
     section>ul {
@@ -51,12 +54,12 @@ if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
         padding: 8px;
         text-align: center;
         border-radius: 10px;
-        background-color: #2C9376;
+        background-color: #2155CD;
         margin-right: 10px;
     }
 
     .add:hover {
-        background-color: #60B099;
+        background-color: #0AA1DD;
     }
 
     .action>.del {
@@ -68,6 +71,10 @@ if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
         border-radius: 10px;
         background-color: #DB3333;
         border: none;
+    }
+
+    .del>.iconify {
+        font-size: 16px;
     }
 
     .action>.del:hover {
@@ -102,7 +109,7 @@ if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
                      <p>' . $row['name'] . '</p>
                      <p>' . $row['email'] . '</p>
                      <div class="action">
-                     <button class="del" onclick="deleteUser(' . $row['id'] . ')">Delete</a>
+                     <button class="del" onclick="deleteUser(' . $row['id'] . ')"><span class="iconify" data-icon="fluent:delete-16-regular"></span>Delete</a>
                      </div>
                      </div>
                      <hr>
