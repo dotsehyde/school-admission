@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($password !== $cpassword) {
         $err = "Password doesn't match";
     } else {
-        $sql = "INSERT INTO users (name,email,password) VALUES ('" . $name . "','" . $email . "','" . $password . "')";
+        $sql = "INSERT INTO users (name,email,password) VALUES (' $name ',' $email ',' $password')";
         $res = mysqli_query($conn, $sql);
         //Check added successfully
         if ($res) {
