@@ -117,6 +117,11 @@ mysqli_close($conn);
         cursor: pointer;
         background-color: #0AA1DD;
     }
+
+    a {
+        margin-top: 1.5%;
+        text-decoration: none;
+    }
 </style>
 
 <body>
@@ -141,6 +146,7 @@ mysqli_close($conn);
             }
             ?>
             <button id="login-btn" type="submit" value="">Add User</button>
+            <a href="./index.php">Maybe later</a>
         </form>
     </section>
 

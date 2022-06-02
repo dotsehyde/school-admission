@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //SPONSOR
     $sp_title = $_POST['sp_title'];
-    $sp_name = $_POST['sp_name'];
+    $sp_name = $sp_title . ' ' . $_POST['sp_name'];
     $sp_relation = $_POST['sp_relation'];
     $sp_occupation = $_POST['sp_occupation'];
     $sp_phone = $_POST['sp_phone'];
@@ -55,14 +55,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $certLocs = array();
     $certTmpPath = array();
     foreach ($_FILES['edu_cert']['name'] as $name) {
-        $certExt = explode('.', $name);
-        $certActualExt = strtolower(end($certExt));
-        $certNewName = uniqid('cert_', true) . "." . $certActualExt;
-        $certLoc = 'uploads/' . $certNewName;
-        array_push($certLocs, $certLoc);
+        if (isset($name) || $name !== "") {
+            $certExt = explode('.', $name);
+            $certActualExt = strtolower(end($certExt)) ?? "";
+            $certNewName = uniqid('cert_', true) . "." . $certActualExt;
+            $certLoc = 'uploads/' . $certNewName;
+            if ($certActualExt !== "") {
+                array_push($certLocs, $certLoc);
+            }
+        }
     }
     foreach ($_FILES['edu_cert']['tmp_name'] as $i) {
-        array_push($certTmpPath, $i);
+        if (isset($i) || $i !== "") {
+            array_push($certTmpPath, $i);
+        }
     }
     for ($x = 0; $x < count($certLocs); $x++) {
         move_uploaded_file($certTmpPath[$x], $certLocs[$x]);
@@ -72,12 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO entries (application_mode,mature_student,surname,first_name,other_name,gender,dob,nationality,marital_status,mailing_address,email,country,phone,prog_type,prog_enroll,picture,sp_title,sp_name,sp_relation,sp_occupation,sp_address,sp_email,sp_phone,rel_type,rel_deno,progs,edu_school,edu_to,edu_from,edu_cert) VALUES ('$application_mode','$mature_student','$surname','$first_name','$other_name','$gender','$dob','$nationality','$marital_status','$mailing_address','$email','$country','$phone','$prog_type','$prog_enroll','$pictureLoc','$sp_title','$sp_name','$sp_relation','$sp_occupation','$sp_address','$sp_email','$sp_phone','$rel_type','$rel_deno','$enc_progs','$enc_edu_school','$enc_edu_to','$enc_edu_from','$enc_edu_cert')";
     $res = mysqli_query($conn, $sql);
     if ($res) {
-        //    header('Location:' . $pictureLoc);
-        echo 'OK';
-        echo '<script>alert("Your form has been submitted successfully")</script>';
+        header('Location: ./views/success.html', true);
     } else {
-        echo 'Failed';
-        echo '<script>alert("Submission failed\nPlease try again!")</script>';
+        header('Location: ./views/failed.html', true);
     }
 }
 mysqli_close($conn);

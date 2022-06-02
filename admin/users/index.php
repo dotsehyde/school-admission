@@ -23,6 +23,14 @@ if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
         box-sizing: border-box;
     }
 
+    .header h1 {
+        margin: 0.5% 0;
+    }
+
+    .header a {
+        text-decoration: none;
+    }
+
     section {
         background-color: #E8F9FD;
     }
@@ -85,8 +93,15 @@ if (!isset($_SESSION["logged"]) && $_SESSION["logged"] !== true) {
 
 <body>
     <div class="header">
-        <h1>Users</h1>
-        <a href="./addUser.php" class="add">Add User</a>
+        <div>
+            <a href="../index.php"><span class="iconify" data-icon="eva:arrow-back-fill"></span> Go Back</a>
+            <h1>Users</h1>
+        </div>
+        <div class="sbox">
+            <a href="./addUser.php" class="add">Add User</a>
+
+        </div>
+
     </div>
     <hr />
     <section>

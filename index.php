@@ -104,8 +104,8 @@
                         <td>
                             <select required name="gender" class="texrbox">
                                 <option value="" disabled selected>Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </td>
                         <td>
@@ -123,8 +123,8 @@
                         <td>
                             <select required name="marital_status" class="texrbox">
                                 <option value="" disabled selected>Marital Status</option>
-                                <option value="single">Single</option>
-                                <option value="married">Married</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
                             </select>
                         </td>
                     </tr>
@@ -132,17 +132,17 @@
                         <td>
                             <select required name="nationality" class="texrbox">
                                 <option value="" disabled selected>Select Nationality</option>
-                                <option value="ghanaian">Ghanaian</option>
-                                <option value="nigerian">Nigerian</option>
-                                <option value="togolese">Togolese</option>
+                                <option value="Ghanaian">Ghanaian</option>
+                                <option value="Nigerian">Nigerian</option>
+                                <option value="Togolese">Togolese</option>
                             </select>
                         </td>
                         <td>
                             <select required name="country" class="texrbox">
                                 <option value="" disabled selected>Country of Residence</option>
-                                <option value="ghana">Ghana</option>
-                                <option value="nigeria">Nigeria</option>
-                                <option value="togo">Togo</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Togo">Togo</option>
                             </select>
                         </td>
                     </tr>
@@ -219,7 +219,7 @@
                         <label for="prog-summer">Sandwitch/Summer</label>
                     </div>
                 </div>
-
+                <!-- Education  -->
                 <div class="title">
                     <p><span class="iconify" data-icon="dashicons:welcome-learn-more"></span>EDUCATION AND QUALIFICATION</p>
                 </div>
