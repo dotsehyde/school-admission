@@ -1,3 +1,4 @@
+
 function deleteEntry(id) {
     let con = confirm("Do you want to delete this entry?");
     if (con) {
@@ -8,3 +9,4 @@ function deleteEntry(id) {
 function viewDetail(id) {
     window.location.href = `../entries/details.php?id=${id}`;
 }
+

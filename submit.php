@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Programme of study
     $prog_type = $_POST['prog_type'];
-    $progs = $_POST['progs']; //[]
+    $progs = $_POST['progs']; //[] //["IT","Maths","English"]
     $enc_progs = json_encode($progs);
     $prog_enroll = $_POST['prog_enroll'];
 
@@ -45,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Files
     $pictureName = $_FILES['picture']['name'];
-    $pictureExt = explode('.', $pictureName);
-    $pictureActualExt = strtolower(end($pictureExt));
+    $pictureExt = explode('.', $pictureName); //Get extension eg. jpg
+    $pictureActualExt = strtolower(end($pictureExt)); //Convert to lowercase 
     $pictureNewName = uniqid('', true) . "." . $pictureActualExt;
     $pictureLoc = 'uploads/' . $pictureNewName;
 

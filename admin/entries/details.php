@@ -20,6 +20,7 @@ if ($res) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entry Details</title>
     <link rel="stylesheet" href="../../style.css?v=<?php echo time(); ?>">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <style>
@@ -57,12 +58,37 @@ if ($res) {
         background-color: #D15858;
         cursor: pointer;
     }
+
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        #print #back {
+            visibility: hidden;
+        }
+
+        #print .iconify {
+            visibility: hidden;
+        }
+
+        #print button {
+            visibility: hidden;
+        }
+
+        #print,
+        #print * {
+            visibility: visible;
+        }
+
+
+    }
 </style>
 
 <body>
-    <section style="width:100vw; height:100vh;">
+    <section id="print">
 
-        <a href="./index.php"><span class="iconify" data-icon="eva:arrow-back-fill"></span> Go Back</a>
+        <a id="back" href="./index.php"><span class="iconify" data-icon="eva:arrow-back-fill"></span> Go Back</a>
         <?php
         if (mysqli_num_rows($res) > 0) {
             while ($row = mysqli_fetch_assoc($res)) {
@@ -249,10 +275,10 @@ if ($res) {
                 <span style="font-weight: normal;">' . $row['rel_deno'] . '</span>
             </div>
         </div>
-        <div style="display:float; position:sticky; bottom:10px; left:2px;">
-        <!-- <button class="view" onclick=""><span class="iconify" data-icon="carbon:data-view-alt"></span>Download PDF</a> -->
+        <div style="display:float; position:sticky; bottom:10px; left:2px; margin-left:10px;">
+         <button class="view" onclick="window.print()"><span class="iconify" data-icon="carbon:data-view-alt"></span>Download PDF</a>
             <button class="del" onclick="deleteEntry(' . $row['id'] . ')"><span class="iconify" data-icon="fluent:delete-16-regular"></span>Delete</a>
-    </div>
+     </div>
                 ';
             }
         } else {
@@ -261,9 +287,31 @@ if ($res) {
         ?>
 
     </section>
-
-    <script src="./js/main.js"></script>
+    <!-- <script>
+        function downloadPDF() {
+            const doc = document.getElementById("doc");
+            var opt = {
+                margin: 1,
+                filename: 'file.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 1
+                },
+                html2canvas: {
+                    scale: 2
+                },
+                jsPDF: {
+                    unit: 'in',
+                    format: 'letter',
+                    orientation: 'portrait'
+                }
+            };
+            html2pdf().from(doc).save();
+        }
+    </script> -->
+    <script type="text/javascript" src="./js/main.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
 </body>
 
 </html>

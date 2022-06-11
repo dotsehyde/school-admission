@@ -86,9 +86,7 @@
                     <input required type="file" id="uploadImage" name="picture" onchange="previewImage()" accept="image/*" />
                 </div>
                 <table id="personal">
-                    <tr>
 
-                    </tr>
                     <tr>
                         <td>
                             <input required class="texrbox" type="text" name="lastName" placeholder="Last Name">
@@ -331,7 +329,7 @@
                 </div>
                 <hr style="margin-bottom:1%;" />
                 <!-- Terms & Condition  -->
-                <p><span class="iconify" data-icon="bi:arrow-left-square" style="margin: 0 0.8%; vertical-align: top; font-size:1.2rem;"></span>Please read the declaration at left side and check the box below.</p>
+                <p><span class="iconify" data-icon="bi:arrow-left-square" style="margin: 0 0.8%; vertical-align: top; font-size:1.2rem;"></span>Please read the declaration at the left side and check the box below.</p>
                 <div class="row" style="margin:1%;">
                     <input required type="checkbox" name="tc" id="tc">
                     <p>I accept.</p>

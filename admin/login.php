@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $res = mysqli_query($conn, $sql);
     //Check login status
     if (mysqli_num_rows($res) > 0) {
-        echo 'login successful<br>';
+        //successfully logged in
 
         while ($row = mysqli_fetch_assoc($res)) {
-            echo "Name: " . $row['name'];
+
             // Store data in session variables
             $_SESSION["logged"] = true;
             $_SESSION["email"] = $email;
